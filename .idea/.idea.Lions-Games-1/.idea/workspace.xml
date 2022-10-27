@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/XRGrabInteractableTwoAttach.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.oculus@3.0.2/Runtime/OculusLoader.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -69,6 +70,7 @@
       <workItem from="1665664366443" duration="981000" />
       <workItem from="1666268511499" duration="45000" />
       <workItem from="1666269125872" duration="1531000" />
+      <workItem from="1666874168569" duration="2487000" />
     </task>
     <servers />
   </component>
