@@ -537,7 +537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   m_System: {fileID: 389508022}
   m_MoveSpeed: 1
   m_EnableStrafe: 1
@@ -547,7 +546,6 @@ MonoBehaviour:
   m_ForwardSource: {fileID: 380500347}
   m_LeftHandMoveAction:
     m_UseReference: 0
-=======
   m_UpdateTrackingType: 0
   m_EnableInputTracking: 1
   m_EnableInputActions: 1
@@ -643,7 +641,6 @@ MonoBehaviour:
     m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_UIPressAction:
     m_UseReference: 1
->>>>>>> Stashed changes
     m_Action:
       m_Name: Left Hand Move
       m_Type: 0
@@ -759,16 +756,13 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-<<<<<<< Updated upstream
     m_Reference: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &389508025
 MonoBehaviour:
-=======
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
 --- !u!1001 &709757881
 PrefabInstance:
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1280,7 +1274,6 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-<<<<<<< Updated upstream
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
 --- !u!135 &624026201
@@ -1489,11 +1482,9 @@ MonoBehaviour:
     m_Reference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   handAnimator: {fileID: 834657746}
 --- !u!1 &851877376
-=======
     m_Reference: {fileID: 875253871413052681, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
 --- !u!1 &855463136
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1501,7 +1492,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< Updated upstream
   - component: {fileID: 851877377}
   - component: {fileID: 851877378}
   - component: {fileID: 851877380}
@@ -1820,28 +1810,22 @@ GameObject:
   - component: {fileID: 1041746843}
   m_Layer: 7
   m_Name: Grab Interactable Instantaneous
-=======
   - component: {fileID: 855463139}
   - component: {fileID: 855463138}
   m_Layer: 0
   m_Name: Item_Spreader
->>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< Updated upstream
 --- !u!114 &1041746843
-=======
 --- !u!114 &855463138
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 1041746842}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2041,7 +2025,6 @@ MeshFilter:
   m_GameObject: {fileID: 1041746842}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1041746848
-=======
   m_GameObject: {fileID: 855463136}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2054,13 +2037,11 @@ MeshFilter:
   Z_item: 5
   Number_item: 42
 --- !u!4 &855463139
->>>>>>> Stashed changes
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 1041746842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.044, z: 1.87}
@@ -2100,7 +2081,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1387481156}
   m_RootOrder: 2
-=======
   m_GameObject: {fileID: 855463136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 3.32}
@@ -2109,7 +2089,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1240346229
 GameObject:
