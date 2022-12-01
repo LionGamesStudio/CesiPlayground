@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonStarter/PolygonPrototype/URP_ExtractMe.unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/raycast_item_aligner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/raycast_item_aligner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,10 +53,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="33156">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="33156" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -81,7 +77,7 @@
       <workItem from="1666269125872" duration="1531000" />
       <workItem from="1666874168569" duration="2493000" />
       <workItem from="1668688855952" duration="1412000" />
-      <workItem from="1669898143722" duration="1324000" />
+      <workItem from="1669898143722" duration="4361000" />
     </task>
     <servers />
   </component>
