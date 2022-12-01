@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Item_Arrea_Spawner : MonoBehaviour
 {
@@ -17,8 +19,17 @@ public class Item_Arrea_Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {       //spawn de number_item cibles
-        for (int i=0; i<Number_item;i++){
+        int nb_item_spawn = 0;
+        int index = 0;
+        while (nb_item_spawn < Number_item)
+        {
             Spread_Items();
+            nb_item_spawn = itemsToSpread.GetComponent<raycast_item_aligner>().getnNbItemsSpawn();
+            index++;
+            if (index >= 100)
+            {
+                break;
+            }
         }
     }
 }

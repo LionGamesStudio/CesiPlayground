@@ -11,6 +11,7 @@ public class raycast_item_aligner : MonoBehaviour
     public float distance_sol = 1.5f;
     public float Overlap_Textbox_Size = 1f;
     public LayerMask Spawn_Layer_Mask;
+    private static int nb_spawn = 0;
     void Pick(Vector3 PositionToSpawn, Quaternion RotationToSpawn){ //creation de la liste des items à créer à un emplacement aléatoire d'une zone
         int randomIndex = Random.Range(0,toSpawn.Length);
         GameObject clone = Instantiate(toSpawn[randomIndex],PositionToSpawn,RotationToSpawn);
@@ -26,7 +27,9 @@ public class raycast_item_aligner : MonoBehaviour
             Vector3 Overlap_Scale = new Vector3(1, Overlap_Textbox_Size, Overlap_Textbox_Size);
             Collider[] Collider_Inside_Overlap_Box = new Collider[1];
             int nombre_collision = Physics.OverlapBoxNonAlloc(position_spawn, Overlap_Scale, Collider_Inside_Overlap_Box, rotation, Spawn_Layer_Mask);
-            if (nombre_collision==0) {
+            if (nombre_collision==0)
+            {
+                nb_spawn++;
                 Pick(position_spawn, rotation);
             }
         }
@@ -39,5 +42,10 @@ public class raycast_item_aligner : MonoBehaviour
     // Update is called once per frame
     void Update() {
         
+    }
+
+    public int getnNbItemsSpawn()
+    {
+        return nb_spawn;
     }
 }
