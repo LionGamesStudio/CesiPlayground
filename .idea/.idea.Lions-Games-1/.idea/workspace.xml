@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="" />
+    <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SyntyStudios/PolygonStarter/PolygonPrototype/URP_ExtractMe.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +40,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2020.3.22f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\raphu\OneDrive\Documents\GitHub\Lions-Games-1 -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\raphu\OneDrive\Documents\GitHub\Lions-Games-1" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -73,6 +81,7 @@
       <workItem from="1666269125872" duration="1531000" />
       <workItem from="1666874168569" duration="2493000" />
       <workItem from="1668688855952" duration="1412000" />
+      <workItem from="1669898143722" duration="1324000" />
     </task>
     <servers />
   </component>
