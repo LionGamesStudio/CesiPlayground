@@ -5,6 +5,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 234596283730439182, guid: f88318257831a94469b00648c127f41f, type: 3}
@@ -33,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 234596283730439182, guid: f88318257831a94469b00648c127f41f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 234596283730439182, guid: f88318257831a94469b00648c127f41f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 234596283730439182, guid: f88318257831a94469b00648c127f41f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -53,11 +54,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4115836184271906175, guid: f88318257831a94469b00648c127f41f, type: 3}
       propertyPath: m_Name
-      value: SM_PolygonPrototype_Prop_Target_03 1
+      value: SM_PolygonPrototype_Prop_Target_03 1 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5038897629759047517, guid: f88318257831a94469b00648c127f41f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dd41db2cdb4e66e4985303e1287ab101, type: 2}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f88318257831a94469b00648c127f41f, type: 3}
