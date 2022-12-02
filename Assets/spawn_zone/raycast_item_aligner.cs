@@ -8,7 +8,7 @@ public class raycast_item_aligner : MonoBehaviour
 {
     public float raycast_distance = 100f;
     public GameObject[] toSpawn;
-    public float distance_sol = 1.5f;
+    public float distance_sol = 0.5f;
     public float Overlap_Textbox_Size = 1f;
     public LayerMask Spawn_Layer_Mask;
     private static int nb_spawn = 0;

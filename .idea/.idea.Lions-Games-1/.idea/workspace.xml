@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="" />
+    <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/raycast_item_aligner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/raycast_item_aligner.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
