@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletColor.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BulletColor.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Prefab/SM_PolygonPrototype_Prop_Target_03 1 Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Prefab/SM_PolygonPrototype_Prop_Target_03 1 Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Prefab/SM_PolygonPrototype_Prop_Target_03 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Prefab/SM_PolygonPrototype_Prop_Target_03 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/raycast_item_aligner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/raycast_item_aligner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/LifeScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/LifeScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/main.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
