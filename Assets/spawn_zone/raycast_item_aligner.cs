@@ -20,7 +20,7 @@ public class raycast_item_aligner : MonoBehaviour
         RaycastHit Ray;
         if (Physics.Raycast(transform.position, Vector3.down, out Ray, raycast_distance))
         {
-           float _y = Ray.point.y + distance_sol;
+            float _y = Ray.point.y + distance_sol * Random.Range(1f, 3f);
             Vector3 position_spawn = new Vector3(Ray.point.x, _y, Ray.point.z);
             Quaternion rotation = Quaternion.FromToRotation(Vector3.up, Ray.normal);
 

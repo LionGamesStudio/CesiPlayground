@@ -14,7 +14,7 @@ public class Item_Arrea_Spawner : MonoBehaviour
     void Spread_Items()
     {       //spawn items in random location
         Vector3 Rand_position= new Vector3(Random.Range(-X_item,X_item),Random.Range(-Y_item,Y_item),Random.Range(-Z_item,Z_item))+transform.position;
-        GameObject clone = Instantiate(itemsToSpread,Rand_position,Quaternion.Euler(0f,180f,0f));
+        GameObject clone = Instantiate(itemsToSpread,Rand_position,Quaternion.Euler(0f,0f,0f));
     }
     // Start is called before the first frame update
     void Start()
