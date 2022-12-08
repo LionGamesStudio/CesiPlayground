@@ -6,7 +6,9 @@ using UnityEngine;
 public class LifeScore : MonoBehaviour
 {
     public int life = 200;
+    public int value = 5;
     public GameObject balle;
+    public GameObject score;
 
     public void TakeDamage(int damage)
     {
@@ -14,6 +16,8 @@ public class LifeScore : MonoBehaviour
         if (life <= 0)
         {
             Destroy(this, 0f);
+            score.GetComponent<Scoring>().score += value;
+            score.GetComponent<Scoring>().UpdateText();
         }
     }
 
