@@ -7,28 +7,43 @@ using Random = UnityEngine.Random;
 public class Item_Arrea_Spawner : MonoBehaviour
 {
     public GameObject itemsToSpread;
-    public float X_item = 0;
-    public float Y_item = 1;
-    public float Z_item = 3.32f;
-    public int Number_item = 42;
+    public DataItemSpread levelData;
+    private int nbCibleAlive = 0;
+
+
     void Spread_Items()
     {       //spawn items in random location
-        Vector3 Rand_position= new Vector3(Random.Range(-X_item,X_item),Random.Range(-Y_item,Y_item),Random.Range(-Z_item,Z_item))+transform.position;
+        Vector3 Rand_position= new Vector3(Random.Range(-levelData.X_item,levelData.X_item),Random.Range(-levelData.Y_item,levelData.Y_item),Random.Range(-levelData.Z_item,levelData.Z_item))+transform.position;
         GameObject clone = Instantiate(itemsToSpread,Rand_position,Quaternion.Euler(0f,0f,0f));
     }
     // Start is called before the first frame update
     void Start()
-    {       //spawn de number_item cibles
-        int nb_item_spawn = 0;
-        int index = 0;
-        while (nb_item_spawn < Number_item)
+    {
+        nbCibleAlive = levelData.Number_item;
+       //spawn de number_item cibles
+        for (int i = 0; i < levelData.Number_item; i++)
         {
             Spread_Items();
-            nb_item_spawn = itemsToSpread.GetComponent<raycast_item_aligner>().getnNbItemsSpawn();
-            index++;
-            if (index >= 100)
+        }
+        
+    }
+    
+    //coroutine pour baisser le nombre d'objet présent
+    public IEnumerator LowerNbItems()
+    {
+        nbCibleAlive--;
+        yield return null;
+    }
+
+    private void Update()
+    {
+        
+        if (nbCibleAlive <= 0)
+        {
+            nbCibleAlive = levelData.Number_item;
+            for (int i = 0; i < levelData.Number_item; i++)
             {
-                break;
+                Spread_Items();
             }
         }
     }
