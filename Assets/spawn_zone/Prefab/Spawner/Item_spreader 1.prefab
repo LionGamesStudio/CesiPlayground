@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7783844097035768933
+--- !u!1 &4005899022812114914
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1538310516634649784}
-  - component: {fileID: 8692454688166382518}
+  - component: {fileID: 4005899022812114912}
+  - component: {fileID: 4005899022812114913}
   m_Layer: 0
-  m_Name: Score
+  m_Name: Item_spreader 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1538310516634649784
+--- !u!4 &4005899022812114912
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7783844097035768933}
+  m_GameObject: {fileID: 4005899022812114914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.475563, y: 1.4840052, z: -21.199854}
+  m_LocalPosition: {x: -4.33, y: 0.186, z: -27.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8692454688166382518
+--- !u!114 &4005899022812114913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7783844097035768933}
+  m_GameObject: {fileID: 4005899022812114914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c4df3798ac6cf4db5df9ba44f8a70f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9307c0566a769314abec4e560f594f2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
-  canvas: {fileID: 8442242792288886034, guid: 9c6d006c214946545ad284bfff0d7898, type: 3}
+  itemsToSpread: {fileID: 3109230657019756761, guid: 5602de2457014b549a23c9e5d3197636, type: 3}
+  levelData: {fileID: 11400000, guid: 55f45db1f522a2c4e88ee95bd51f2712, type: 2}

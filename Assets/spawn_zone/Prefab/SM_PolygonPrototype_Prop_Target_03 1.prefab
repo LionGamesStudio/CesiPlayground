@@ -125,4 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 200
+  value: 5
   balle: {fileID: 6792232888774348060, guid: 0b2b7605d173b0a4a84b53dc9e922b1c, type: 3}
+  score: {fileID: 7783844097035768933, guid: 81f89cda286e51645a23106dcb1cbd18, type: 3}

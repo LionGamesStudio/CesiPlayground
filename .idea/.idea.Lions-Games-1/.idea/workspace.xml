@@ -4,7 +4,11 @@
     <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Bullet/LifeScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/LifeScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Score.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Score.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Scoring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Scoring.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Prefab/SM_PolygonPrototype_Prop_Target_03 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Prefab/SM_PolygonPrototype_Prop_Target_03 1.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +16,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/GrabHandPose.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/XRGrabInteractableTwoAttach.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3dd5df5ef4974f29afeb2d3ba227c5da46a800/e8/800015e3/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LevelSystem/DataLevel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LevelSystem/LevelSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/spawn_zone/Prefab/DataItemSpreader/DataItemSpread.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.xr.oculus@3.0.2/Runtime/OculusLoader.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -53,10 +59,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="24248">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="24248" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -79,6 +85,10 @@
       <workItem from="1668688855952" duration="2775000" />
       <workItem from="1669295345562" duration="4577000" />
       <workItem from="1669898053271" duration="3650000" />
+      <workItem from="1670570861131" duration="616000" />
+      <workItem from="1671114668197" duration="2871000" />
+      <workItem from="1671176041224" duration="1855000" />
+      <workItem from="1671192641468" duration="1759000" />
     </task>
     <servers />
   </component>

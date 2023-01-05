@@ -15,10 +15,17 @@ public class LifeScore : MonoBehaviour
         life -= damage;
         if (life <= 0)
         {
-            Destroy(this, 0f);
             score.GetComponent<Scoring>().score += value;
             score.GetComponent<Scoring>().UpdateText();
+            lowerNbCounter();
+            Destroy(this, 0f);
         }
+    }
+    
+    //Appel coroutine pour baisser le nombre d'objet
+    private void lowerNbCounter()
+    {
+        StartCoroutine(GetComponent<Item_Arrea_Spawner>().LowerNbItems());
     }
 
     private void OnCollisionEnter(Collision collision)
