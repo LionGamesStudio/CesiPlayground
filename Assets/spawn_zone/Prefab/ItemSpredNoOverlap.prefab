@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.4147604, y: -1.6154991, z: 3.216394}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,4 +52,4 @@ MonoBehaviour:
   Overlap_Textbox_Size: 0.2
   Spawn_Layer_Mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 257

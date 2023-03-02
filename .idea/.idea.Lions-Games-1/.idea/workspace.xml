@@ -4,11 +4,7 @@
     <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Bullet/LifeScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/LifeScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Score.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Score.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/Scoring.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/Scoring.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Item_Arrea_Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/spawn_zone/Prefab/SM_PolygonPrototype_Prop_Target_03 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/spawn_zone/Prefab/SM_PolygonPrototype_Prop_Target_03 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VR/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VR/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,10 +55,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="24248">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="24248" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -89,6 +85,7 @@
       <workItem from="1671114668197" duration="2871000" />
       <workItem from="1671176041224" duration="1855000" />
       <workItem from="1671192641468" duration="1759000" />
+      <workItem from="1677771223397" duration="836000" />
     </task>
     <servers />
   </component>

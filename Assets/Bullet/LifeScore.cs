@@ -7,7 +7,6 @@ public class LifeScore : MonoBehaviour
 {
     public int life = 200;
     public int value = 5;
-    public GameObject balle;
     public GameObject score;
 
     public void TakeDamage(int damage)
@@ -30,7 +29,7 @@ public class LifeScore : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == balle)
+        if (collision.gameObject.name == "Bullet")
         {
             TakeDamage(collision.gameObject.GetComponent<Damage>().damage);
         }
