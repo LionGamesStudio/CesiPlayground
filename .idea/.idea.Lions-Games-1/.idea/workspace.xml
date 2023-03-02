@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lions-Games-1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Bullet/LifeScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Bullet/LifeScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VR/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VR/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="e942b148-a9eb-4b2f-a241-f681ea6e60af" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +81,7 @@
       <workItem from="1671114668197" duration="2871000" />
       <workItem from="1671176041224" duration="1855000" />
       <workItem from="1671192641468" duration="1759000" />
-      <workItem from="1677771223397" duration="836000" />
+      <workItem from="1677771223397" duration="1710000" />
     </task>
     <servers />
   </component>
