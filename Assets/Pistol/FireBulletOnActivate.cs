@@ -1,32 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Random = System.Random;
+
 public class FireBulletOnActivate : MonoBehaviour
 {
     public GameObject bullet;
 
     public Transform spawnPoint;
 
-    public float fireSpeed = 20;
+    public float FireSpeed = 10;
+    public float FireDelay = 0.5f;
+
+    public GameObject ShootEffect;
+    
+    //Better to set in private and declare outside the start for global access in class
+    private XRGrabInteractable _grabbable;
+    private float _nextFireTime;
+    
     
     // Start is called before the first frame update
     void Start()
     {
-        XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
-        grabbable.activated.AddListener(FireBullet);
+        _grabbable = GetComponent<XRGrabInteractable>();
+        _grabbable.activated.AddListener(FireBullet);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void FireBullet(ActivateEventArgs arg)
     {
+        if (_nextFireTime > Time.time) return;
+        _nextFireTime = Time.time + FireDelay;
+        Vector3 posAnim = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 0.05f, spawnPoint.position.z);
+        GameObject spawnedBullet = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+        GameObject anime = Instantiate(ShootEffect, posAnim, spawnPoint.rotation);
+
         
+        spawnedBullet.tag = "Bullet";
+        spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * FireSpeed;
+        spawnedBullet.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+        Destroy(anime, 5);
+        Destroy(spawnedBullet,5);
     }
-public void FireBullet(ActivateEventArgs arg)
-{
-    GameObject spawnedBullet = Instantiate(bullet);
-    spawnedBullet.transform.position = spawnPoint.position;
-    spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * fireSpeed;
-    Destroy(spawnedBullet,5);
-}
 }

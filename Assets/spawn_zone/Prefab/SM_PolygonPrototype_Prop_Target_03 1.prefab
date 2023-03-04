@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 8587457851008800493}
   - component: {fileID: 5038897629759047517}
   - component: {fileID: 6980026965269289155}
-  - component: {fileID: 2365994348669217403}
-  - component: {fileID: 5825723759801097280}
   m_Layer: 8
   m_Name: SM_PolygonPrototype_Prop_Target_03 1
   m_TagString: Untagged
@@ -34,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8587457851008800493
 MeshFilter:
@@ -100,31 +98,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8332f017cfb13984196e491ffb1aaf3f, type: 3}
---- !u!114 &2365994348669217403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115836184271906175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f0e28ab7a17c5e448c7f0d780f32459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5825723759801097280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115836184271906175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16cc2717751c8e24bbbca5c48f3fa470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  life: 200
-  value: 5
-  balle: {fileID: 6792232888774348060, guid: 0b2b7605d173b0a4a84b53dc9e922b1c, type: 3}
-  score: {fileID: 7783844097035768933, guid: 81f89cda286e51645a23106dcb1cbd18, type: 3}

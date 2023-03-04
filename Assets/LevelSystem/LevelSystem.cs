@@ -21,17 +21,17 @@ public class LevelSystem : MonoBehaviour
     {
         if (currentLevel < levels.Count)
         {
-            if (scoringSystem.GetComponent<Scoring>().score >= levels[currentLevel].value)
-            {
-                return true;
-            }
+            // if (scoringSystem.GetComponent<Scoring>().score >= levels[currentLevel].value)
+            // {
+            //     return true;
+            // }
         }
         return false;
     }
 
     private void CreateInstance()
     {
-        levelInProcess = Instantiate(levels[currentLevel].levelDesign);
+        // levelInProcess = Instantiate(levels[currentLevel].levelDesign);
     }
 
     private void DestroyInstance()
