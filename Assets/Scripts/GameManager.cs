@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
     private bool _startedGame;
     private int _score;
     private string _playerName;
-    public GameObject TransformPistol;
-    private Transform _originTransformPistol;
+    //public GameObject TransformPistol;
+    //private Transform _originTransformPistol;
 
     private void Awake()
     {
@@ -20,15 +20,14 @@ public class GameManager : MonoBehaviour
     {
         _startedGame = false;
         _score = 0;
-        _originTransformPistol = TransformPistol.transform;
+        //_originTransformPistol = TransformPistol.transform;
     }
 
     private void FixedUpdate()
     {
-        // if (!_startedGame && Input.GetKeyDown(KeyCode.S))
+        // if (!_startedGame)
         // {
         //     StartGame();
-        //     Debug.Log("Start game!");
         // }
         // if( Input.GetKeyDown(KeyCode.R))
         // {
@@ -47,7 +46,7 @@ public class GameManager : MonoBehaviour
         _startedGame = true;
         _score = 0;
         LevelManager.Instance.InitializeLevel();
-        ScoreBoardManager.Instance.LoadJson();
+        //ScoreBoardManager.Instance.LoadJson();
     }
 
     public void PauseGame()
@@ -66,7 +65,7 @@ public class GameManager : MonoBehaviour
         _score = 0;
         _playerName = "Unknown";
         LevelManager.Instance.ResetLevel();
-        TransformPistol.transform.position = _originTransformPistol.position;
+        //TransformPistol.transform.position = _originTransformPistol.position;
     }
 
     public void UpgradeScore()
@@ -78,5 +77,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         ScoreBoardManager.Instance.AddScore(-1, _playerName, _score);
+        _startedGame = false;
+        LevelManager.Instance.ResetLevel();
     }
 }
