@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Left Hand
   - Right Hand
+  - FxTemporaire
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185e92e6a8a91a74290e1936ea9ff42e, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  level: 1
-  value: 100
-  levelDesign: {fileID: 4005899022812114914, guid: 669583330c3dd6c48b2ee8e50022ae65, type: 3}
+  NumberOfTarget: 2
+  CooldownSpawn: 2
+  CooldownAlive: 2
+  Prefab: {fileID: 8501340564559270100, guid: 52d32a74bdcf9434d99c5673b86e432a, type: 3}
