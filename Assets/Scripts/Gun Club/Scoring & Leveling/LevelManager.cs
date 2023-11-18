@@ -28,6 +28,7 @@ public class LevelManager : MonoBehaviour
     public void InitializeLevel()
     {
         if(_currentLevel == -1) return;
+        _currentLevel = 0;
         SpawnManager.Instance.LaunchRandomGenerating(_levels[_currentLevel]);
     }
 
@@ -47,7 +48,7 @@ public class LevelManager : MonoBehaviour
 
     public void ResetLevel()
     {
-        _currentLevel = 1;
+        _currentLevel = 0;
         SpawnManager.Instance.ResetRandomGenerating();
     }
 }
