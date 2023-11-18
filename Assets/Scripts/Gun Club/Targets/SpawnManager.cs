@@ -47,9 +47,15 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < _currentDataLevel.NumberOfTarget; i++)
         {
+            // Generate the position of spawn
             int randNumber = Random.Range(0, _currentDataLevel.NumberOfTarget);
             _spawnPosibilitiesAlreadyUsed.Add(_spawnPosibilities[randNumber]);
-            GameObject newTarget = Instantiate(_currentDataLevel.Prefab, _spawnPosibilities[randNumber].transform);
+
+            // Generate the type of target to spawn
+            int randTarget = Random.Range(0, _currentDataLevel.Prefab.Count);
+
+
+            GameObject newTarget = Instantiate(_currentDataLevel.Prefab[randTarget], _spawnPosibilities[randNumber].transform);
             Destroy(newTarget, _currentDataLevel.CooldownAlive);
             _numberOfTargetSpawned++;
             if (_numberOfTargetSpawned == _currentDataLevel.NumberOfTarget)

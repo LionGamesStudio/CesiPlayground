@@ -28,7 +28,6 @@ public class LevelManager : MonoBehaviour
     public void InitializeLevel()
     {
         if(_currentLevel == -1) return;
-        _currentLevel = 0;
         SpawnManager.Instance.LaunchRandomGenerating(_levels[_currentLevel]);
     }
 
@@ -36,8 +35,9 @@ public class LevelManager : MonoBehaviour
     {
         _currentLevel++;
         //WAITING Maybe
-        if (_levels.Count - 1 == _currentLevel)
+        if (_levels.Count - 1 <= _currentLevel)
         {
+            Debug.Log("End of the game");
             GameManager.Instance.EndGame();
         }
         else

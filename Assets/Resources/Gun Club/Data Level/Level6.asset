@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 185e92e6a8a91a74290e1936ea9ff42e, type: 3}
-  m_Name: Level3
+  m_Name: Level6
   m_EditorClassIdentifier: 
-  NumberOfTarget: 6
-  CooldownSpawn: 3
-  CooldownAlive: 3
-  Prefab: {fileID: 8501340564559270100, guid: 52d32a74bdcf9434d99c5673b86e432a, type: 3}
+  NumberOfTarget: 15
+  CooldownSpawn: 2
+  CooldownAlive: 2
+  Prefab:
+  - {fileID: 5271164571076807960, guid: f38cba9d70dd45943b3145476130cfe7, type: 3}
+  - {fileID: 5271164571076807960, guid: f38cba9d70dd45943b3145476130cfe7, type: 3}
+  - {fileID: 8501340564559270100, guid: 52d32a74bdcf9434d99c5673b86e432a, type: 3}
