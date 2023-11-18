@@ -68,9 +68,9 @@ public class GameManager : MonoBehaviour
         //TransformPistol.transform.position = _originTransformPistol.position;
     }
 
-    public void UpgradeScore()
+    public void UpgradeScore(int point)
     {
-        _score += 10;
+        _score += point;
         UIManager.Instance.ScoreText.text = "Score : " + _score;
     }
 

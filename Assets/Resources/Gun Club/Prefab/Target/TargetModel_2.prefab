@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effect: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
+  _point: 30
 --- !u!65 &7042251386586705828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55,25 +56,16 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8501340564559270100}
   m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.1}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3352726920410716866
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 361844982140038192}
     m_Modifications:
     - target: {fileID: 5183239081294331453, guid: 261032ed74c9dac44b7c9c3e33a16f63, type: 3}
@@ -82,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9057169153921693516, guid: 261032ed74c9dac44b7c9c3e33a16f63, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9057169153921693516, guid: 261032ed74c9dac44b7c9c3e33a16f63, type: 3}
       propertyPath: m_LocalPosition.x
@@ -128,9 +120,6 @@ PrefabInstance:
     - {fileID: 6783898900060385593, guid: 261032ed74c9dac44b7c9c3e33a16f63, type: 3}
     - {fileID: 3326422538853992194, guid: 261032ed74c9dac44b7c9c3e33a16f63, type: 3}
     - {fileID: 2174951387585545089, guid: 261032ed74c9dac44b7c9c3e33a16f63, type: 3}
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 261032ed74c9dac44b7c9c3e33a16f63, type: 3}
 --- !u!4 &5996191081964301710 stripped
 Transform:
