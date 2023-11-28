@@ -4,6 +4,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+// Utilisé dans le script Assets/Scripts/Gun%20Club/spawn_targets/ItemSpreadNoOverlap prefab
 public class raycast_item_aligner : MonoBehaviour
 {
     public float raycast_distance = 100f;
@@ -12,10 +13,14 @@ public class raycast_item_aligner : MonoBehaviour
     public float Overlap_Textbox_Size = 1f;
     public LayerMask Spawn_Layer_Mask;
     private static int nb_spawn = 0;
-    void Pick(Vector3 PositionToSpawn, Quaternion RotationToSpawn){ //creation de la liste des items à créer à un emplacement aléatoire d'une zone
+
+    //creation de la liste des items à créer à un emplacement aléatoire d'une zone
+    void Pick(Vector3 PositionToSpawn, Quaternion RotationToSpawn){ 
         int randomIndex = Random.Range(0,toSpawn.Length);
         GameObject clone = Instantiate(toSpawn[randomIndex],PositionToSpawn,RotationToSpawn);
     }
+
+
     void Position_Raycast() {
         RaycastHit Ray;
         if (Physics.Raycast(transform.position, Vector3.down, out Ray, raycast_distance))
@@ -39,10 +44,6 @@ public class raycast_item_aligner : MonoBehaviour
         Position_Raycast();
     }
 
-    // Update is called once per frame
-    void Update() {
-        
-    }
 
     public int getnNbItemsSpawn()
     {
