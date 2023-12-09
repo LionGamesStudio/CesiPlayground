@@ -8,10 +8,15 @@ public class DisplayInterfaceButton : MonoBehaviour
     [SerializeField] private GameObject _interfaceToDisplay;
     private bool _isInterfaceDisplayed = false;
 
+    public GameObject Interface {
+        get {
+            return _interfaceToDisplay;
+        }
+    }
+
     public void Start()
     {
         _interfaceToDisplay = GameObject.Instantiate(_interfaceToDisplay);
-
         _interfaceToDisplay.SetActive(false);
     }
 

@@ -76,6 +76,7 @@ public class ScoreBoardManager : MonoBehaviour
         if(RowBoards == null)
         {
             RowBoards = new List<RowBoard>();
+
             return;
         }
 
@@ -136,10 +137,20 @@ public class ScoreBoardManager : MonoBehaviour
             SortBoard();
 
             // Display the new score
-            GameObject newRow = Instantiate(RowBoardPrefab, Content);
-            newRow.GetComponent<RowBoardControler>().Position.text = newScore.Pos.ToString();
-            newRow.GetComponent<RowBoardControler>().Name.text = newScore.PlayerName;
-            newRow.GetComponent<RowBoardControler>().Score.text = newScore.Score.ToString();
+            // GameObject newRow = Instantiate(RowBoardPrefab, Content);
+            for(int i = 0; i < Content.childCount; i++) {
+                GameObject obj = Content.GetChild(i).gameObject;
+                Destroy(obj);
+            }
+
+            foreach(var elem in RowBoards) {
+                GameObject newRow = Instantiate(RowBoardPrefab, Content);
+                newRow.GetComponent<RowBoardControler>().Position.text = elem.Pos.ToString();
+                newRow.GetComponent<RowBoardControler>().Name.text = elem.PlayerName;
+                newRow.GetComponent<RowBoardControler>().Score.text = elem.Score.ToString();
+            }
+
+            
         }
 
         // Save the board
