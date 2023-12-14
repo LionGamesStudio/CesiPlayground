@@ -16,7 +16,6 @@ public class DisplayInterfaceButton : MonoBehaviour
 
     public void Start()
     {
-        _interfaceToDisplay = GameObject.Instantiate(_interfaceToDisplay);
         _interfaceToDisplay.SetActive(false);
     }
 

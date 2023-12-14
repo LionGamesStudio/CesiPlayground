@@ -81,12 +81,12 @@ public class ScoreBoardManager : MonoBehaviour
         }
 
         // Add the board to the UI
-        foreach (RowBoard row in RowBoards)
-        {
+        for(int i = RowBoards.Count - 1; i >= 0; i--) {
+            var elem = RowBoards[i];
             GameObject newRow = Instantiate(RowBoardPrefab, Content);
-            newRow.GetComponent<RowBoardControler>().Position.text = row.Pos.ToString();
-            newRow.GetComponent<RowBoardControler>().Name.text = row.PlayerName;
-            newRow.GetComponent<RowBoardControler>().Score.text = row.Score.ToString();
+            newRow.GetComponent<RowBoardControler>().Position.text = elem.Pos.ToString();
+            newRow.GetComponent<RowBoardControler>().Name.text = elem.PlayerName;
+            newRow.GetComponent<RowBoardControler>().Score.text = elem.Score.ToString();
         }
     }
     
@@ -95,11 +95,11 @@ public class ScoreBoardManager : MonoBehaviour
         RowBoards.Sort(delegate(RowBoard x, RowBoard y) {
             return x.Score.CompareTo(y.Score);
         });
-        int newPos = 1;
+        int newPos = RowBoards.Count - 1;
         foreach (RowBoard row in RowBoards)
         {
             row.Pos = newPos;
-            newPos++;
+            newPos--;
         }
     }
 
@@ -143,7 +143,8 @@ public class ScoreBoardManager : MonoBehaviour
                 Destroy(obj);
             }
 
-            foreach(var elem in RowBoards) {
+            for(int i = RowBoards.Count - 1; i >= 0; i--) {
+                var elem = RowBoards[i];
                 GameObject newRow = Instantiate(RowBoardPrefab, Content);
                 newRow.GetComponent<RowBoardControler>().Position.text = elem.Pos.ToString();
                 newRow.GetComponent<RowBoardControler>().Name.text = elem.PlayerName;
