@@ -17,5 +17,5 @@ MonoBehaviour:
   CooldownAlive: 2
   Prefab:
   - {fileID: 5271164571076807960, guid: f38cba9d70dd45943b3145476130cfe7, type: 3}
-  - {fileID: 5271164571076807960, guid: f38cba9d70dd45943b3145476130cfe7, type: 3}
+  - {fileID: 8501340564559270100, guid: 22c8a360210e22e459f9fb1ee9097cb9, type: 3}
   - {fileID: 8501340564559270100, guid: 52d32a74bdcf9434d99c5673b86e432a, type: 3}

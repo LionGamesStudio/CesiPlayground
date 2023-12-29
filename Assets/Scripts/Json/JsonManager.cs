@@ -35,7 +35,6 @@ namespace Assets.Scripts.Json
             if (File.Exists(path))
             {
                 string JsonString = File.ReadAllText(path);
-                Debug.Log(JsonString);
                 if (JsonString != "" && JsonString != "{}")
                 {
                     return JsonConvert.DeserializeObject<List<T>>(JsonString);

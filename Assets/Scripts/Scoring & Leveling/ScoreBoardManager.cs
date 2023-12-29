@@ -48,58 +48,94 @@ public class RowBoard
 public class ScoreBoardManager : MonoBehaviour
 {
     public static ScoreBoardManager Instance;
-    public List<RowBoard> RowBoards;
-    public GameObject RowBoardPrefab;
-    public Transform Content;
-    public string JsonName;
-    private string _jsonPath;
-    
 
+    // List of all scoreboard object
+    public List<List<RowBoard>> RowBoards = new List<List<RowBoard>>();
+    public GameObject RowBoardPrefab;
+
+    // List of each content for each scoreboard (the UI of the scoreboard is instantiated in the content)
+    public List<Transform> Contents = new List<Transform>();
+
+    // List of the name of each json files containing the scoreboards
+    public List<string> JsonNames;
+
+    // List of the path to each json files
+    private List<string> _jsonPaths = new List<string>();
+    
+    /// <summary>
+    /// The json file of the scoreboard currently in use
+    /// </summary>
+    public string ActualJsonFile {
+        get; set;
+    }
+
+    public List<RowBoard> BoardInUse {
+        get; set;
+    }
+
+    public Transform ContentInUse {
+        get; set;
+    }
 
     private void Awake()
     {
-        Instance = this;
-
-        // Check if extension is precised in the json name
-        string name = JsonName.Split('.')[0] + ".json";
-
-        // Path to score saving in Resources directory
-        _jsonPath = "Assets/Resources/Scores/" + name;
+        Instance = this;      
     }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        // Load the json file
-        RowBoards = JsonManager.LoadJson<RowBoard>(_jsonPath);
-
-        if(RowBoards == null)
-        {
-            RowBoards = new List<RowBoard>();
-
-            return;
+        // Path to score saving in Resources directory
+        foreach(string name in JsonNames) {
+            // Check if extension is precised in the json name
+            string nameTmp = name.Split('.')[0] + ".json";
+            _jsonPaths.Add("Assets/Resources/Scores/" + nameTmp);
         }
 
-        // Add the board to the UI
-        foreach (RowBoard row in RowBoards)
-        {
-            GameObject newRow = Instantiate(RowBoardPrefab, Content);
-            newRow.GetComponent<RowBoardControler>().Position.text = row.Pos.ToString();
-            newRow.GetComponent<RowBoardControler>().Name.text = row.PlayerName;
-            newRow.GetComponent<RowBoardControler>().Score.text = row.Score.ToString();
+        for(int i = 0; i < _jsonPaths.Count; i++) {
+            ActualJsonFile = _jsonPaths[i];
+            ContentInUse = Contents[i];
+
+            // Load the json file
+            List<RowBoard> board = JsonManager.LoadJson<RowBoard>(ActualJsonFile);
+
+            if(board == null)
+            {
+                board = new List<RowBoard>();
+
+                RowBoards.Add(board);
+
+                ActualJsonFile = _jsonPaths[i+1];
+                BoardInUse = RowBoards[i];
+                ContentInUse = Contents[i+1];
+                return;
+            }
+
+            // Add the boards to the UI
+            for(int j = board.Count - 1; j >= 0; j--) {
+                var elem = board[j];
+                GameObject newRow = Instantiate(RowBoardPrefab, ContentInUse);
+                newRow.GetComponent<RowBoardControler>().Position.text = elem.Pos.ToString();
+                newRow.GetComponent<RowBoardControler>().Name.text = elem.PlayerName;
+                newRow.GetComponent<RowBoardControler>().Score.text = elem.Score.ToString();
+            }
+
+            RowBoards.Add(board);
+
+            BoardInUse = RowBoards[i];
         }
     }
     
-    private void SortBoard()
+    private void SortBoard(List<RowBoard> board)
     {
-        RowBoards.Sort(delegate(RowBoard x, RowBoard y) {
+        board.Sort(delegate(RowBoard x, RowBoard y) {
             return x.Score.CompareTo(y.Score);
         });
-        int newPos = 1;
-        foreach (RowBoard row in RowBoards)
+        int newPos = board.Count - 1;
+        foreach (RowBoard row in board)
         {
             row.Pos = newPos;
-            newPos++;
+            newPos--;
         }
     }
 
@@ -113,7 +149,7 @@ public class ScoreBoardManager : MonoBehaviour
 
         // Check if the player is already in the board
         bool isNewScore = false;
-        foreach(RowBoard row in RowBoards)
+        foreach(RowBoard row in BoardInUse)
         {
             if(row.IsNewScore(newScore) || row == newScore)
             {
@@ -122,7 +158,7 @@ public class ScoreBoardManager : MonoBehaviour
                 isNewScore = true;
 
                 // Sort the board
-                SortBoard();
+                SortBoard(BoardInUse);
 
                 break;
             }
@@ -131,20 +167,21 @@ public class ScoreBoardManager : MonoBehaviour
         // If it's a new player, add it to the board
         if(!isNewScore)
         {
-            RowBoards.Add(newScore);
+            BoardInUse.Add(newScore);
 
             // Sort the board
-            SortBoard();
+            SortBoard(BoardInUse);
 
             // Display the new score
-            // GameObject newRow = Instantiate(RowBoardPrefab, Content);
-            for(int i = 0; i < Content.childCount; i++) {
-                GameObject obj = Content.GetChild(i).gameObject;
+            // GameObject newRow = Instantiate(RowBoardPrefab, Contents);
+            for(int i = 0; i < ContentInUse.childCount; i++) {
+                GameObject obj = ContentInUse.GetChild(i).gameObject;
                 Destroy(obj);
             }
 
-            foreach(var elem in RowBoards) {
-                GameObject newRow = Instantiate(RowBoardPrefab, Content);
+            for(int i = BoardInUse.Count - 1; i >= 0; i--) {
+                var elem = BoardInUse[i];
+                GameObject newRow = Instantiate(RowBoardPrefab, ContentInUse);
                 newRow.GetComponent<RowBoardControler>().Position.text = elem.Pos.ToString();
                 newRow.GetComponent<RowBoardControler>().Name.text = elem.PlayerName;
                 newRow.GetComponent<RowBoardControler>().Score.text = elem.Score.ToString();
@@ -154,7 +191,7 @@ public class ScoreBoardManager : MonoBehaviour
         }
 
         // Save the board
-        JsonManager.SaveListIntoJson<RowBoard>(RowBoards, _jsonPath);
+        JsonManager.SaveListIntoJson<RowBoard>(BoardInUse, ActualJsonFile);
 
     }
 

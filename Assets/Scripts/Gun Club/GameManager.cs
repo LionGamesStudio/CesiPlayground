@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         _startedGame = true;
+        UIManager.Instance.ScoreText.text = "Score : 0"; 
         _score = 0;
         LevelManager.Instance.InitializeLevel();
         //ScoreBoardManager.Instance.LoadJson();
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         ScoreBoardManager.Instance.AddScore(-1, _playerName, _score);
+        UIManager.Instance.ScoreText.text = "Score : 0"; 
         _startedGame = false;
         LevelManager.Instance.ResetLevel();
     }

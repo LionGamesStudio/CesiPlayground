@@ -1,52 +1,22 @@
 [
   {
-    "Pos": 1,
-    "PlayerName": "test",
+    "Pos": 3,
+    "PlayerName": "flo3",
     "Score": 0
   },
   {
     "Pos": 2,
-    "PlayerName": "test1",
-    "Score": 0
+    "PlayerName": "flo2",
+    "Score": 180
   },
   {
-    "Pos": 3,
-    "PlayerName": null,
-    "Score": 0
-  },
-  {
-    "Pos": 4,
-    "PlayerName": "test3",
-    "Score": 0
-  },
-  {
-    "Pos": 5,
-    "PlayerName": "test4",
-    "Score": 0
-  },
-  {
-    "Pos": 6,
-    "PlayerName": "enzo",
-    "Score": 10
-  },
-  {
-    "Pos": 7,
+    "Pos": 1,
     "PlayerName": "flo",
-    "Score": 20
+    "Score": 450
   },
   {
-    "Pos": 8,
-    "PlayerName": "testuu",
-    "Score": 30
-  },
-  {
-    "Pos": 9,
-    "PlayerName": "ggggzggggggggggggggggggggggggggggggggggggggggggggggg",
-    "Score": 90
-  },
-  {
-    "Pos": 10,
-    "PlayerName": "Unknown",
-    "Score": 440
+    "Pos": 0,
+    "PlayerName": "vincent",
+    "Score": 550
   }
 ]

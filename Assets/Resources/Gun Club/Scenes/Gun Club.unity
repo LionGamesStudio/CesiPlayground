@@ -8920,6 +8920,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5056d4708513ab1428db6b9453114bb9, type: 2}
   - {fileID: 11400000, guid: 1cfc4bae4835d6d4b846442a93624d74, type: 2}
   - {fileID: 11400000, guid: 200171c671bca444e993a0da65e8be92, type: 2}
+  - {fileID: 11400000, guid: 78172dcca75a8354e849824137c767c5, type: 2}
 --- !u!4 &1764508965
 Transform:
   m_ObjectHideFlags: 0
@@ -11357,7 +11358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score Variable
+  m_text: Score 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11695,6 +11696,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 455336736095956308, guid: cc80325645dfe1b4ba33915a3814d98d, type: 3}
+      propertyPath: m_text
+      value: 'Score : 0'
+      objectReference: {fileID: 0}
     - target: {fileID: 767869431908742776, guid: cc80325645dfe1b4ba33915a3814d98d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -11742,6 +11747,10 @@ PrefabInstance:
     - target: {fileID: 1732285781979876847, guid: cc80325645dfe1b4ba33915a3814d98d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732285781979876847, guid: cc80325645dfe1b4ba33915a3814d98d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 1821898008586393946, guid: cc80325645dfe1b4ba33915a3814d98d, type: 3}
       propertyPath: m_Name
@@ -11923,7 +11932,8 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: -17
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6635651936596124748, guid: cc80325645dfe1b4ba33915a3814d98d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11953,6 +11963,22 @@ PrefabInstance:
       propertyPath: Content
       value: 
       objectReference: {fileID: 1385186968}
+    - target: {fileID: 430889258243646346, guid: 8d719ce1909b2fc42b019091176ac9fb, type: 3}
+      propertyPath: Contents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430889258243646346, guid: 8d719ce1909b2fc42b019091176ac9fb, type: 3}
+      propertyPath: JsonNames.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430889258243646346, guid: 8d719ce1909b2fc42b019091176ac9fb, type: 3}
+      propertyPath: Contents.Array.data[0]
+      value: 
+      objectReference: {fileID: 1385186968}
+    - target: {fileID: 430889258243646346, guid: 8d719ce1909b2fc42b019091176ac9fb, type: 3}
+      propertyPath: JsonNames.Array.data[0]
+      value: gun_club
+      objectReference: {fileID: 0}
     - target: {fileID: 1310729438293698669, guid: 8d719ce1909b2fc42b019091176ac9fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
