@@ -43,6 +43,10 @@ public class SpawnManager : MonoBehaviour
         _numberOfTargetSpawned = 0;
     }
 
+    /// <summary>
+    /// Launch the spawn of targets
+    /// </summary>
+    /// <returns></returns>
     IEnumerator LaunchSpawnIterator()
     {
         for (int i = 0; i < _currentDataLevel.NumberOfTarget; i++)

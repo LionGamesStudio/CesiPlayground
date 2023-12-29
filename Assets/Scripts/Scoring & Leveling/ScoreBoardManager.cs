@@ -131,7 +131,7 @@ public class ScoreBoardManager : MonoBehaviour
         board.Sort(delegate(RowBoard x, RowBoard y) {
             return x.Score.CompareTo(y.Score);
         });
-        int newPos = RowBoards.Count - 1;
+        int newPos = board.Count - 1;
         foreach (RowBoard row in board)
         {
             row.Pos = newPos;
