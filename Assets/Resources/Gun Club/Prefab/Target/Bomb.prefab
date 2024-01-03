@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 361844982140038192}
   - component: {fileID: 7493269972551288565}
   - component: {fileID: 7042251386586705828}
+  - component: {fileID: 4007051020998690135}
   m_Layer: 8
   m_Name: Bomb
   m_TagString: Untagged
@@ -67,8 +68,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7852342, y: 0.77313167, z: 0.1778521}
-  m_Center: {x: -0.008554816, y: -0.0025031865, z: -0.004277315}
+  m_Size: {x: 0.89, y: 1.07, z: 0.93}
+  m_Center: {x: 0.07, y: 0.03, z: 0}
+--- !u!114 &4007051020998690135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501340564559270100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e47cef43bbe49f40bc405b0cbd34856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionSound: {fileID: 8300000, guid: 0af20d5215ea0ec4a895d45419237696, type: 3}
 --- !u!1001 &2275956189634662412
 PrefabInstance:
   m_ObjectHideFlags: 0

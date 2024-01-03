@@ -10,6 +10,12 @@ public class TargetController : MonoBehaviour
         if (!other.gameObject.CompareTag("Bullet")) return;
         GameManager.Instance.UpgradeScore(_point);
         Instantiate(_effect, transform.position, transform.rotation);
-        Destroy(gameObject);
+
+        if (GetComponent<OnDestroyPlaySound>() != null)
+            GetComponent<OnDestroyPlaySound>().OnBeforeDestroy();
+        else
+            Destroy(gameObject);
+
     }
+
 }

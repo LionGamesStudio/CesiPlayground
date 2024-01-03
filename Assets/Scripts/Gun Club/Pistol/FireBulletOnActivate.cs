@@ -37,6 +37,11 @@ public class FireBulletOnActivate : MonoBehaviour
         spawnedBullet.tag = "Bullet";
         spawnedBullet.GetComponent<Rigidbody>().velocity = spawnPoint.forward * FireSpeed;
         spawnedBullet.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+
+        // Play the sound of the gun
+        if (GetComponent<AudioSource>() != null)
+            GetComponent<AudioSource>().Play();
+
         Destroy(anime, 5);
         Destroy(spawnedBullet,5);
     }
