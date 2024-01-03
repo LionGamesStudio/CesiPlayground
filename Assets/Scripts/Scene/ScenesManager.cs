@@ -9,34 +9,90 @@ namespace Assets.Scripts.Scene
     
     public class ScenesManager : MonoBehaviour
     {
-        public static ScenesManager Instance;
+        private static ScenesManager instance;
 
         // List of scene to instantiate
-        [SerializeField] private List<string> _scenes;
+        [SerializeField, Tooltip("List of scene to instantiate at the start")] 
+        private List<DataScene> _scenesToLoadAtStart = new List<DataScene>();
+
+        private List<DataScene> _scenes = new List<DataScene>();
 
         private void Awake()
         {
-            Instance = this;
+            instance = this;
+        }
+
+        public static ScenesManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ScenesManager();
+                }
+                return instance;
+            }
+        }
+
+        public string GetActiveSceneName()
+        {
+            return SceneManager.GetActiveScene().name;
         }
 
         private void Start()
         {
-            foreach(string scene in _scenes)
+            foreach(DataScene scene in _scenesToLoadAtStart)
             {
                 StartCoroutine(InstantiateScene(scene));
             }
         }
 
-        public IEnumerator InstantiateScene(string scene)
+        public IEnumerator InstantiateScene(DataScene scene)
         {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+            AsyncOperation asyncLoad;
 
-            while(!asyncLoad.isDone)
+            if (scene._canBeLoadedMultipleTimes || (!scene._hasOneInstance && !scene._canBeLoadedMultipleTimes))
+            {
+                asyncLoad = SceneManager.LoadSceneAsync(scene._sceneName, LoadSceneMode.Additive);
+
+                while (!asyncLoad.isDone)
+                {
+                    yield return null;
+                }
+
+                if (scene._isMainScene)
+                {
+                    // Unload the current active scene
+                    DataScene currentScene = _scenes.Find(x => x._sceneName == SceneManager.GetActiveScene().name);
+                    
+                    if(currentScene != null)
+                    {
+                        StartCoroutine(DestroyScene(currentScene));
+                    }
+
+                    // Set the new scene as the active scene
+                    SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene._sceneName));
+                }
+
+                scene._hasOneInstance = true;
+            }
+
+
+            
+        }
+
+        public IEnumerator DestroyScene(DataScene scene)
+        {
+            AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(scene._sceneName);
+
+            while (!asyncUnload.isDone)
             {
                 yield return null;
             }
-        }
 
+            scene._hasOneInstance = false;
+
+        }
 
     }
 }

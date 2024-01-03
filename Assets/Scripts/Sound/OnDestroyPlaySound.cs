@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class OnDestroyPlaySound : MonoBehaviour
 {
     // The sound to play when the object is destroyed

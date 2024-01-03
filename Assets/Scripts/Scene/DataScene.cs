@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+
+[CreateAssetMenu(fileName = "DataScene", menuName = "ScriptableObjects/DataScene", order = 1)]
+public class DataScene : ScriptableObject
+{
+    public string _sceneName;
+    public bool _isMainScene = false;
+    public bool _canBeLoadedMultipleTimes = false;
+    public bool _hasOneInstance = false;
+
+    private void OnDisable()
+    {
+        EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+    }
+
+    private void OnEnable()
+    {
+        EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+    }
+
+    private void OnPlayModeStateChanged(PlayModeStateChange obj)
+    {
+        if (obj == PlayModeStateChange.ExitingPlayMode)
+        {
+            _hasOneInstance = false;
+        }
+    }
+}
