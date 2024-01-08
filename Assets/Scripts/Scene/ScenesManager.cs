@@ -1,38 +1,24 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.All;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Scene
 {
     
-    public class ScenesManager : MonoBehaviour
+    public class ScenesManager : Singleton<ScenesManager>
     {
-        private static ScenesManager instance;
-
         // List of scene to instantiate
         [SerializeField, Tooltip("List of scene to instantiate at the start")] 
         private List<DataScene> _scenesToLoadAtStart = new List<DataScene>();
 
-        private List<DataScene> _scenes = new List<DataScene>();
+        private List<(int, DataScene)> _scenesInstantiatedData = new List<(int, DataScene)>();
 
-        private void Awake()
-        {
-            instance = this;
-        }
+        public static int _sceneLastID = 0;
 
-        public static ScenesManager Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new ScenesManager();
-                }
-                return instance;
-            }
-        }
 
         public string GetActiveSceneName()
         {
@@ -47,11 +33,16 @@ namespace Assets.Scripts.Scene
             }
         }
 
+        /// <summary>
+        /// Instantiate a scene asynchronously
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <returns></returns>
         public IEnumerator InstantiateScene(DataScene scene)
         {
             AsyncOperation asyncLoad;
 
-            if (scene._canBeLoadedMultipleTimes || (!scene._hasOneInstance && !scene._canBeLoadedMultipleTimes))
+            if (!scene._hasOneInstance)
             {
                 asyncLoad = SceneManager.LoadSceneAsync(scene._sceneName, LoadSceneMode.Additive);
 
@@ -63,7 +54,7 @@ namespace Assets.Scripts.Scene
                 if (scene._isMainScene)
                 {
                     // Unload the current active scene
-                    DataScene currentScene = _scenes.Find(x => x._sceneName == SceneManager.GetActiveScene().name);
+                    DataScene currentScene = _scenesInstantiatedData.Find(x => x.Item2._sceneName == SceneManager.GetActiveScene().name).Item2;
                     
                     if(currentScene != null)
                     {
@@ -74,15 +65,66 @@ namespace Assets.Scripts.Scene
                     SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene._sceneName));
                 }
 
+                _scenesInstantiatedData.Add((_sceneLastID, scene));
+
+                _sceneLastID++;
+
                 scene._hasOneInstance = true;
+
             }
-
-
-            
         }
 
+        /// <summary>
+        /// Instantiate a scene asynchronously and execute an action after
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public IEnumerator InstantiateSceneWithLastAction(DataScene scene, System.Action action)
+        {
+            AsyncOperation asyncLoad;
+
+            if (!scene._hasOneInstance)
+            {
+                asyncLoad = SceneManager.LoadSceneAsync(scene._sceneName, LoadSceneMode.Additive);
+
+                while (!asyncLoad.isDone)
+                {
+                    yield return null;
+                }
+
+                if (scene._isMainScene)
+                {
+                    // Unload the current active scene
+                    DataScene currentScene = _scenesInstantiatedData.Find(x => x.Item2._sceneName == SceneManager.GetActiveScene().name).Item2;
+
+                    if (currentScene != null)
+                    {
+                        StartCoroutine(DestroyScene(currentScene));
+                    }
+
+                    // Set the new scene as the active scene
+                    SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene._sceneName));
+                }
+
+                _scenesInstantiatedData.Add((_sceneLastID, scene));
+                _sceneLastID++;
+
+                scene._hasOneInstance = true;
+
+                action();
+            }
+        }
+
+        /// <summary>
+        /// Destroy a scene
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <returns></returns>
         public IEnumerator DestroyScene(DataScene scene)
         {
+            _scenesInstantiatedData.Remove(_scenesInstantiatedData.Find(x => x.Item2._sceneName == scene._sceneName));
+
             AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(scene._sceneName);
 
             while (!asyncUnload.isDone)

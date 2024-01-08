@@ -9,7 +9,6 @@ public class DataScene : ScriptableObject
 {
     public string _sceneName;
     public bool _isMainScene = false;
-    public bool _canBeLoadedMultipleTimes = false;
     public bool _hasOneInstance = false;
 
     private void OnDisable()

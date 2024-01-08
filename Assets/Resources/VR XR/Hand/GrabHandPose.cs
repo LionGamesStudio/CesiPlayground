@@ -27,9 +27,12 @@ public class GrabHandPose : MonoBehaviour
     void Start()
     {
         XRGrabInteractable grabInteractable = GetComponent<XRGrabInteractable>();
-        
-        grabInteractable.selectEntered.AddListener(SetupPose);
-        grabInteractable.selectExited.AddListener(UnSetPose);
+
+        if(grabInteractable != null)
+        {
+            grabInteractable.selectEntered.AddListener(SetupPose);
+            grabInteractable.selectExited.AddListener(UnSetPose);
+        }
         
         rightHandPose.gameObject.SetActive(false);
         leftHandPose.gameObject.SetActive(false);

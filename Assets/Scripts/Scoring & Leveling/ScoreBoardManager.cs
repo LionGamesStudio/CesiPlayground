@@ -157,9 +157,6 @@ public class ScoreBoardManager : MonoBehaviour
                 row.Pos = newScore.Pos;
                 isNewScore = true;
 
-                // Sort the board
-                SortBoard(BoardInUse);
-
                 break;
             }
         }
@@ -168,36 +165,34 @@ public class ScoreBoardManager : MonoBehaviour
         if(!isNewScore)
         {
             BoardInUse.Add(newScore);
-
-            // Sort the board
-            SortBoard(BoardInUse);
-
-            // Display the new score
-            // GameObject newRow = Instantiate(RowBoardPrefab, Contents);
-            for(int i = 0; i < ContentInUse.childCount; i++) {
-                GameObject obj = ContentInUse.GetChild(i).gameObject;
-                Destroy(obj);
-            }
-
-            for(int i = BoardInUse.Count - 1; i >= 0; i--) {
-                var elem = BoardInUse[i];
-                GameObject newRow = Instantiate(RowBoardPrefab, ContentInUse);
-                newRow.GetComponent<RowBoardControler>().Position.text = elem.Pos.ToString();
-                newRow.GetComponent<RowBoardControler>().Name.text = elem.PlayerName;
-                newRow.GetComponent<RowBoardControler>().Score.text = elem.Score.ToString();
-            }
-
-            
         }
+
+        // Sort the board
+        SortBoard(BoardInUse);
+
+        // Display the new score
+        AddNewScoreToUI();
 
         // Save the board
         JsonManager.SaveListIntoJson<RowBoard>(BoardInUse, ActualJsonFile);
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AddNewScoreToUI()
     {
-        
+        for (int i = 0; i < ContentInUse.childCount; i++)
+        {
+            GameObject obj = ContentInUse.GetChild(i).gameObject;
+            Destroy(obj);
+        }
+
+        for (int i = BoardInUse.Count - 1; i >= 0; i--)
+        {
+            var elem = BoardInUse[i];
+            GameObject newRow = Instantiate(RowBoardPrefab, ContentInUse);
+            newRow.GetComponent<RowBoardControler>().Position.text = elem.Pos.ToString();
+            newRow.GetComponent<RowBoardControler>().Name.text = elem.PlayerName;
+            newRow.GetComponent<RowBoardControler>().Score.text = elem.Score.ToString();
+        }
     }
 }

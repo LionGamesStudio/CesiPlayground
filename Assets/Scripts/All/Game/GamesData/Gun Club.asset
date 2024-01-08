@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1bb917449a186448995743b3b22ee0, type: 3}
+  m_Name: Gun Club
+  m_EditorClassIdentifier: 
+  GameName: Gun Club
+  GameDescription: 
+  GameImage: {fileID: 0}
+  GamePrefab: {fileID: 8247761859016245067, guid: f3ceee21eb84c074dbf201c9250a5411, type: 3}
+  GameStrategyFactory: {fileID: 11400000, guid: c3d4170194c043e4293354e7c4f5e377, type: 2}
