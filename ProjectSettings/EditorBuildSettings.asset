@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
+    path: Assets/Scenes/Hub.unity
     guid: 5e5ffaa9228f90b4fa1ac21f898d1fce
   - enabled: 1
-    path: Assets/Resources/Gun Club/Scenes/Gun Club.unity
+    path: Assets/Scenes/TestScene/Gun Club.unity
     guid: f969c297bf77f2d4cbede0e73f7b5ae0
+  - enabled: 1
+    path: Assets/Scenes/InitScene.unity
+    guid: 546c20f7b7c4fa740a6248cbad889e18
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 4879139cf18ef1240891862761add62f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1a4c68ca72a83449f938d669337cb305, type: 2}

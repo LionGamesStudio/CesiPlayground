@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class OnDestroyPlaySound : MonoBehaviour
 {
     // The sound to play when the object is destroyed
@@ -19,7 +21,7 @@ public class OnDestroyPlaySound : MonoBehaviour
         sourceAudio.playOnAwake = false;
     }
 
-    public void OnBeforeDestroy()
+    public void OnBeforeDestroy(Action lastAction)
     {
         // GameObject become invisible
         if (GetComponent<Renderer>() != null)
@@ -33,16 +35,15 @@ public class OnDestroyPlaySound : MonoBehaviour
         sourceAudio.Play();
 
         // Wait for the sound to finish
-        StartCoroutine(WaitForSound());
+        StartCoroutine(WaitForSound(lastAction));
     }
 
-    IEnumerator WaitForSound()
+    IEnumerator WaitForSound(Action lastAction)
     {
         // Wait for the sound to finish
         yield return new WaitForSeconds(sourceAudio.clip.length);
 
-        // Destroy the object
-        Destroy(gameObject);
+        lastAction();
 
     }
 

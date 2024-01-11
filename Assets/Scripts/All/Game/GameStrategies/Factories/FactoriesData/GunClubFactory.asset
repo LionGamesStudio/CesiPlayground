@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b8ea45cd01800499e7bf2165799650, type: 3}
+  m_Name: GunClubFactory
+  m_EditorClassIdentifier: 
+  Waves:
+  - {fileID: 11400000, guid: f37881bd0b364d84ea21b670c1d1d10f, type: 2}
+  - {fileID: 11400000, guid: 9916fbb199f63834d85da2d8af6a0da8, type: 2}
+  - {fileID: 11400000, guid: 42f838de9b607fa4cb67f96a1aada05d, type: 2}
+  - {fileID: 11400000, guid: 5056d4708513ab1428db6b9453114bb9, type: 2}
+  - {fileID: 11400000, guid: 1cfc4bae4835d6d4b846442a93624d74, type: 2}
+  - {fileID: 11400000, guid: 200171c671bca444e993a0da65e8be92, type: 2}
+  - {fileID: 11400000, guid: 78172dcca75a8354e849824137c767c5, type: 2}
