@@ -22,6 +22,8 @@ public class GunClubWave : IWave
     private float _nextSpawnTime;
     private int _numberOfTargetSpawned;
 
+    private List<Transform> _spawnPosibilitiesAlreadyUsed = new List<Transform>();
+
     public GunClubWave(Game game, DataGunClubWave _currentLevel, Spawner spawner)
     {
         _game = game;
@@ -40,6 +42,7 @@ public class GunClubWave : IWave
 
         _ready = true;
         _numberOfTargetSpawned = 0;
+        _spawnPosibilitiesAlreadyUsed.Clear();
         Debug.Log("Launch ITERATOR");
         _game.LaunchParallelLogic(LaunchSpawnIterator());
     }
@@ -57,29 +60,55 @@ public class GunClubWave : IWave
     /// <returns></returns>
     private IEnumerator LaunchSpawnIterator()
     {
+        int numberOfTryTolerance = 10;
+
         for (int i = 0; i < _currentLevelData.NumberOfTarget; i++)
         {
-            // Generate the position of spawn
-            int randNumber = Random.Range(0, _currentLevelData.NumberOfTarget);
+            int numberOfTry = 0;
+            bool isSpawned = false;
+            GameObject newTarget = null;
 
-            // Generate the type of target to spawn
-            int randTarget = Random.Range(0, _currentLevelData.Prefab.Count);
-
-            // Check if the target prefab has a TargetController script
-            if (_currentLevelData.Prefab[randTarget].GetComponent<TargetController>() == null)
+            // Try to spawn a target until the number of try is reached or the target is spawned
+            while (numberOfTry < numberOfTryTolerance && !isSpawned)
             {
-                Debug.LogError("No TargetController script found on target prefab");
-                yield break;
+                // Generate the position of spawn
+                int randNumber = Random.Range(0, _currentLevelData.NumberOfTarget);
+
+                // Generate the type of target to spawn
+                int randTarget = Random.Range(0, _currentLevelData.Prefab.Count);
+
+                // Check if the target prefab has a TargetController script
+                if (_currentLevelData.Prefab[randTarget].GetComponent<TargetController>() == null)
+                {
+                    Debug.LogError("No TargetController script found on target prefab");
+                    yield break;
+                }
+
+                // Spawn the target
+                newTarget = _spawner.Spawn<GameObject>(randNumber, _currentLevelData.Prefab[randTarget]);
+
+                // Check if the target is spawned
+                if(newTarget != null)
+                {
+                    isSpawned = true;
+                }
+
+                numberOfTry++;
             }
 
-            // Spawn the target
-            GameObject newTarget = _spawner.Spawn<GameObject>(randNumber, _currentLevelData.Prefab[randTarget]);
+            // Check if the target is spawned
+            if (isSpawned)
+            {
+                // Inform the target to instantiate of which game it is in
+                newTarget.GetComponent<TargetController>().SetGame(_game);
 
-            // Inform the target to instantiate of which game it is in
-            newTarget.GetComponent<TargetController>().SetGame(_game);
+                // Inform the target to instantiate of which spawner it is from
+                newTarget.GetComponent<TargetController>().SetSpawner(_spawner);
 
-            // Dispawn the target after a certain time
-            _spawner.Dispawn(newTarget, _currentLevelData.CooldownAlive);
+                // Dispawn the target after a certain time
+                _spawner.Dispawn(newTarget, _currentLevelData.CooldownAlive);
+                
+            }
 
             _numberOfTargetSpawned++;
 
@@ -93,8 +122,8 @@ public class GunClubWave : IWave
             }
 
             yield return new WaitForSeconds(_currentLevelData.CooldownSpawn);
+            
         }
-
     }
 
 }

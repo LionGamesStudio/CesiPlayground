@@ -413,7 +413,7 @@ GameObject:
   - component: {fileID: 662135517110546535}
   - component: {fileID: 6124633211487757529}
   m_Layer: 5
-  m_Name: UIPC
+  m_Name: UIScorePC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

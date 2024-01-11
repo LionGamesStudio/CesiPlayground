@@ -1,41 +1,80 @@
+using Assets.Scripts.All.Gates;
+using Assets.Scripts.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectPlaceToSpawnUI : MonoBehaviour
 {
-    public List<string> PlaceNames = new List<string>();
+    [SerializeField]
+    private bool _delayedSpawn = false;
 
-    private GameObject _uiTextTemplate;
+    private GameObject _uiButtonTemplate;
+    private Gate _selectedGate;
 
-    private string _selectedPlaceName;
+    private bool _isInitialized = false;
+
+    private GameObject _objectTraveling;
 
     private void Awake()
     {
-        _uiTextTemplate = transform.GetChild(0).gameObject;
-        _uiTextTemplate.SetActive(false);
+        _uiButtonTemplate = transform.GetChild(0).gameObject;
+        _uiButtonTemplate.SetActive(false);
     }
 
-    private void Start()
+    private void Update()
     {
-        foreach (string placeName in PlaceNames)
+        if(!_isInitialized)
         {
-            GameObject uiText = Instantiate(_uiTextTemplate, transform);
-            uiText.SetActive(true);
-            uiText.AddComponent<TextMeshPro>();
-            uiText.GetComponent<TextMeshPro>().text = placeName;
+            foreach (Gate gate in GatesManager.Instance.GetGates())
+            {
+                GameObject uiButton = Instantiate(_uiButtonTemplate, transform);
+                uiButton.SetActive(true);
+                uiButton.GetComponentInChildren<TextMeshPro>().text = gate.Name;
+                uiButton.GetComponent<SelectSpawnButton>().SetPlaceToGo(gate.Name);
+                uiButton.GetComponent<Button>().onClick.AddListener(uiButton.GetComponent<SelectSpawnButton>().OnClick);
+            }
+            _isInitialized = true;
+
+            _selectedGate = GatesManager.Instance.GetGate(0);
         }
     }
 
-    public void SelectPlace(string placeName)
+    public GameObject ObjectTraveling
     {
-        _selectedPlaceName = placeName;
+        get
+        {
+            return _objectTraveling;
+        }
+        set
+        {
+            _objectTraveling = value;
+        }
     }
 
-    public void SetSpawnPoint()
+    public Gate GateToGo
     {
-
+        get
+        {
+            return _selectedGate;
+        }
+        set
+        {
+            _selectedGate = value;
+            if (!_delayedSpawn)
+            {
+                Spawn();
+            }
+        }
     }
 
+    public void Spawn()
+    {
+        if (_selectedGate != null)
+        {
+            ObjectTraveling.transform.position = _selectedGate.transform.position;
+        }
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,8 @@ namespace Assets.Scripts.All.Spawn.Spawners
     /// </summary>
     public class Spawner : MonoBehaviour
     {
-        [SerializeField] private List<Transform> _spawnPosibilities = new List<Transform>();
-        private List<Transform> _spawnPosibilitiesAlreadyUsed;
+        [SerializeField] protected List<Transform> _spawnPossibilities = new List<Transform>();
+        private List<Vector3> _spawnPossibilitiesAlreadyUsed;
 
         // Generate a unique seed for each spawner id
         private int _id = Guid.NewGuid().GetHashCode();
@@ -21,8 +22,8 @@ namespace Assets.Scripts.All.Spawn.Spawners
 
         private void Awake()
         {
-            if (_spawnPosibilities.Count == 0) Debug.LogError("No location for random position provide.");
-            _spawnPosibilitiesAlreadyUsed = new List<Transform>();
+            if (_spawnPossibilities.Count == 0) Debug.LogError("No location for random position provide.");
+            _spawnPossibilitiesAlreadyUsed = new List<Vector3>();
 
             // Add id as name
             this.name = "Spawner_" + _id;
@@ -30,22 +31,48 @@ namespace Assets.Scripts.All.Spawn.Spawners
             SpawnersManager.Instance.AddSpawner(this);
         }
 
-        public GameObject Spawn<T>(int posIndex, T entity)
+        public virtual GameObject Spawn<T>(int posIndex, T entity)
         {
-            _spawnPosibilitiesAlreadyUsed.Add(_spawnPosibilities[posIndex]);
+            // Check if the position is already used
+            if (_spawnPossibilitiesAlreadyUsed.Contains(_spawnPossibilities[posIndex].position))
+            {
+                return null;
+            }
 
-            return SpawnManager.Instance.InstantiateObject(entity as GameObject, _spawnPosibilities[posIndex].transform);
+            _spawnPossibilitiesAlreadyUsed.Add(_spawnPossibilities[posIndex].position);
+
+            return SpawnManager.Instance.InstantiateObject(entity as GameObject, _spawnPossibilities[posIndex].transform);
         }
 
-        public void Dispawn(GameObject entity)
+        public virtual void Dispawn(GameObject entity)
         {
+            if(entity == null) return;
+            if(!_spawnPossibilitiesAlreadyUsed.Contains(entity.transform.position)) return;
+
+            _spawnPossibilitiesAlreadyUsed.Remove(entity.transform.position);
             SpawnManager.Instance.DestroyObject(entity);
         }
 
-        public void Dispawn(GameObject entity, float time)
+        public virtual void Dispawn(GameObject entity, float time)
         {
+            if (entity == null) return;
+            if (!_spawnPossibilitiesAlreadyUsed.Contains(entity.transform.position)) return;
+
+            Vector3 savePosition = entity.transform.position;
+
             SpawnManager.Instance.DestroyObject(entity, time);
+            StartCoroutine(WaitForTimeToFreePosition(time, savePosition));
         }
+
+        private IEnumerator WaitForTimeToFreePosition(float time, Vector3 position)
+        {
+            yield return new WaitForSeconds(time);
+            if(_spawnPossibilitiesAlreadyUsed.Contains(position))
+                _spawnPossibilitiesAlreadyUsed.Remove(position);
+        }
+
+        public List<Transform> SpawnPosibilities { get => _spawnPossibilities; }
+        public List<Vector3> SpawnPosibilitiesAlreadyUsed { get => _spawnPossibilitiesAlreadyUsed; }
 
         /// --------- Assure that the spawner is at the right time in the list of spawners ---------   
         

@@ -14,6 +14,8 @@ namespace Assets.Scripts.All
         public static T TryGetInstance() => HasInstance ? _instance : null;
         public static T Current => _instance;
 
+        private static bool _isAutoCreated = false;
+
         public static T Instance
         {
             get
@@ -25,6 +27,7 @@ namespace Assets.Scripts.All
                     {
                         GameObject obj = new GameObject();
                         obj.name = typeof(T).Name + "AutoCreated";
+                        _isAutoCreated = true;
                         _instance = obj.AddComponent<T>();
                     }
                 }
@@ -34,6 +37,14 @@ namespace Assets.Scripts.All
         }
 
         protected virtual void Awake() => InitializeSingleton();
+
+        protected virtual void OnDestroy()
+        {
+            if(_isAutoCreated)
+            {
+                _instance = null;
+            }
+        }
 
 
         protected virtual void InitializeSingleton()

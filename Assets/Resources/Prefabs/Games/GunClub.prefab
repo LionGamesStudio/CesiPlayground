@@ -5620,7 +5620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ce59a05b06cdf4e8abe651ab11067b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPosibilities:
+  _spawnPossibilities:
   - {fileID: 6193943956111581026}
   - {fileID: 623802801176996142}
   - {fileID: 3403113902367074570}

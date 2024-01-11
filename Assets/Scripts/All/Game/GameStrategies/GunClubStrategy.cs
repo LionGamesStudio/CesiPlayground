@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.All.Spawn.Spawners;
 using Assets.Scripts.Wave;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,7 @@ namespace Assets.Scripts.All.Game.GameStrategies
             _game.StartedGame = true;
             UIManager.Instance.ScoreText.text = "Score : 0";
             _game.Score= 0;
+            _currentLevel = 0;
             _currentWave.InitializeLevel();
         }
 
@@ -52,10 +54,10 @@ namespace Assets.Scripts.All.Game.GameStrategies
         public void ResetGame()
         {
             _game.StartedGame = false;
+            _currentLevel = 0;
             _game.Score = 0;
             _game.PlayerName = "Unknown";
             _currentWave.ResetLevel();
-            _currentLevel = 0;
         }
 
         /// <summary>
@@ -63,11 +65,10 @@ namespace Assets.Scripts.All.Game.GameStrategies
         /// </summary>
         public void EndGame()
         {
-            UIManager.Instance.ScoreText.text = "Score : 0";
-            _game.StartedGame = false;
-            ScoreBoardManager.Instance.AddScore(-1, _game.PlayerName, _game.Score);
-            _currentWave.ResetLevel();
             _currentLevel = 0;
+            _game.StartedGame = false;
+            _game.LaunchParallelLogic(WaitForAllTargetToDispawn());
+            _currentWave.ResetLevel();
         }
 
         /// <summary>
@@ -86,6 +87,13 @@ namespace Assets.Scripts.All.Game.GameStrategies
             {
                 CurrentWave.InitializeLevel();
             }
+        }
+
+        private IEnumerator WaitForAllTargetToDispawn()
+        {
+            yield return new WaitUntil(() => _spawner.SpawnPosibilitiesAlreadyUsed.Count == 0);
+            UIManager.Instance.ScoreText.text = "Score : 0";
+            ScoreBoardManager.Instance.AddScore(-1, _game.PlayerName, _game.Score);
         }
 
         // GETTERS AND SETTERS
@@ -114,6 +122,11 @@ namespace Assets.Scripts.All.Game.GameStrategies
         {
             _spawner = spawner;
             _currentWave = new GunClubWave(_game, _waves[0], _spawner);
+        }
+
+        public Spawner GetSpawner()
+        {
+            return _spawner;
         }
 
     }
