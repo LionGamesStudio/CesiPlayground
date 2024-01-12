@@ -1,24 +1,25 @@
-using Assets.Scripts.All.Spawn.Spawners;
-using Assets.Scripts.Scene;
-using System.Collections;
+using Assets.Scripts.Core.Scene;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartMenuButton : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    [SerializeField]
-    private List<DataScene> _dataScenes;
-
-    [SerializeField]
-    private SelectPlaceToSpawnUI _selectPlaceToSpawnUI;
-
-
-    public void OnClick()
+    public class StartMenuButton : MonoBehaviour
     {
-        foreach (DataScene dataScene in _dataScenes)
-        {
-            StartCoroutine(ScenesManager.Instance.InstantiateScene(dataScene));
-        }
-    }
+        [SerializeField]
+        private List<DataScene> _dataScenes;
 
+        [SerializeField]
+        private SelectPlaceToSpawnUI _selectPlaceToSpawnUI;
+
+
+        public void OnClick()
+        {
+            foreach (DataScene dataScene in _dataScenes)
+            {
+                StartCoroutine(ScenesManager.Instance.InstantiateScene(dataScene));
+            }
+        }
+
+    }
 }

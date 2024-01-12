@@ -1,9 +1,4 @@
-﻿using Assets.Scripts.All.Gates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Core.Gates;
 using UnityEngine;
 
 namespace Assets.Scripts.UI

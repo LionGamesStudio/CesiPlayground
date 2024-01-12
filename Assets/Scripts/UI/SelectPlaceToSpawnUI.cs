@@ -1,80 +1,80 @@
-using Assets.Scripts.All.Gates;
-using Assets.Scripts.UI;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Core.Gates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectPlaceToSpawnUI : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    [SerializeField]
-    private bool _delayedSpawn = false;
-
-    private GameObject _uiButtonTemplate;
-    private Gate _selectedGate;
-
-    private bool _isInitialized = false;
-
-    private GameObject _objectTraveling;
-
-    private void Awake()
+    public class SelectPlaceToSpawnUI : MonoBehaviour
     {
-        _uiButtonTemplate = transform.GetChild(0).gameObject;
-        _uiButtonTemplate.SetActive(false);
-    }
+        [SerializeField]
+        private bool _delayedSpawn = false;
 
-    private void Update()
-    {
-        if(!_isInitialized)
+        private GameObject _uiButtonTemplate;
+        private Gate _selectedGate;
+
+        private bool _isInitialized = false;
+
+        private GameObject _objectTraveling;
+
+        private void Awake()
         {
-            foreach (Gate gate in GatesManager.Instance.GetGates())
+            _uiButtonTemplate = transform.GetChild(0).gameObject;
+            _uiButtonTemplate.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if (!_isInitialized)
             {
-                GameObject uiButton = Instantiate(_uiButtonTemplate, transform);
-                uiButton.SetActive(true);
-                uiButton.GetComponentInChildren<TextMeshPro>().text = gate.Name;
-                uiButton.GetComponent<SelectSpawnButton>().SetPlaceToGo(gate.Name);
-                uiButton.GetComponent<Button>().onClick.AddListener(uiButton.GetComponent<SelectSpawnButton>().OnClick);
-            }
-            _isInitialized = true;
+                foreach (Gate gate in GatesManager.Instance.GetGates())
+                {
+                    GameObject uiButton = Instantiate(_uiButtonTemplate, transform);
+                    uiButton.SetActive(true);
+                    uiButton.GetComponentInChildren<TextMeshPro>().text = gate.Name;
+                    uiButton.GetComponent<SelectSpawnButton>().SetPlaceToGo(gate.Name);
+                    uiButton.GetComponent<Button>().onClick.AddListener(uiButton.GetComponent<SelectSpawnButton>().OnClick);
+                }
+                _isInitialized = true;
 
-            _selectedGate = GatesManager.Instance.GetGate(0);
-        }
-    }
-
-    public GameObject ObjectTraveling
-    {
-        get
-        {
-            return _objectTraveling;
-        }
-        set
-        {
-            _objectTraveling = value;
-        }
-    }
-
-    public Gate GateToGo
-    {
-        get
-        {
-            return _selectedGate;
-        }
-        set
-        {
-            _selectedGate = value;
-            if (!_delayedSpawn)
-            {
-                Spawn();
+                _selectedGate = GatesManager.Instance.GetGate(0);
             }
         }
-    }
 
-    public void Spawn()
-    {
-        if (_selectedGate != null)
+        public GameObject ObjectTraveling
         {
-            ObjectTraveling.transform.position = _selectedGate.transform.position;
+            get
+            {
+                return _objectTraveling;
+            }
+            set
+            {
+                _objectTraveling = value;
+            }
+        }
+
+        public Gate GateToGo
+        {
+            get
+            {
+                return _selectedGate;
+            }
+            set
+            {
+                _selectedGate = value;
+                if (!_delayedSpawn)
+                {
+                    Spawn();
+                }
+            }
+        }
+
+        public void Spawn()
+        {
+            if (_selectedGate != null)
+            {
+                ObjectTraveling.transform.position = _selectedGate.transform.position;
+            }
         }
     }
 }

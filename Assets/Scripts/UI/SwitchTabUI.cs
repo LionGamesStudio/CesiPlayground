@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Assets.Scripts.UI
@@ -32,7 +28,5 @@ namespace Assets.Scripts.UI
             }
             _myScreen.SetActive(true);
         }
-
-        
     }
 }
